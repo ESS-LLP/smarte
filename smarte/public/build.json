@@ -1,0 +1,6 @@
+{
+	"js/smarte.min.js": [
+		"public/js/queries.js",
+		"public/js/conf.js"
+	]
+}

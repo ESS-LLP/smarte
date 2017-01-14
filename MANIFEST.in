@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include smarte *.css
+recursive-include smarte *.csv
+recursive-include smarte *.html
+recursive-include smarte *.ico
+recursive-include smarte *.js
+recursive-include smarte *.json
+recursive-include smarte *.md
+recursive-include smarte *.png
+recursive-include smarte *.py
+recursive-include smarte *.svg
+recursive-include smarte *.txt
+recursive-exclude smarte *.pyc

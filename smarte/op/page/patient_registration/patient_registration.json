@@ -1,0 +1,22 @@
+{
+ "content": null, 
+ "creation": "2016-08-19 15:46:35.960225", 
+ "docstatus": 0, 
+ "doctype": "Page", 
+ "idx": 0, 
+ "modified": "2016-08-19 15:47:03.585578", 
+ "modified_by": "Administrator", 
+ "module": "OP", 
+ "name": "patient-registration", 
+ "owner": "Administrator", 
+ "page_name": "Patient Registration Analytics", 
+ "roles": [
+  {
+   "role": "OP Manager"
+  }
+ ], 
+ "script": null, 
+ "standard": "Yes", 
+ "style": null, 
+ "title": "Patient Registration Analytics"
+}

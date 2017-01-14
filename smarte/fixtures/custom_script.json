@@ -1,0 +1,29 @@
+[
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Sales Invoice", 
+  "modified": "2017-01-04 12:02:20.794055", 
+  "name": "Sales Invoice-Client", 
+  "script": "frappe.provide(\"erpnext.queries\");\nfrappe.ui.form.on(\"Sales Invoice\", \"refresh\", function (frm, cdt, cdn) {\n    frm.set_query(\"item_code\", \"items\", function() {\n      return { \n        query: \"erpnext.controllers.queries.item_query\", \n        filters: frm.doc.billed_in !== \"\" ? {\"billable_in\": frm.doc.billed_in} : {\"disabled\": \"No\"} \n      };\n    });\n});\n\nfrappe.ui.form.on(\"Sales Invoice\", \"customer\",\n    function(frm) {\n        if(frm.doc.customer){\n\t frappe.call({\n             \"method\": \"frappe.client.get\",\n             args: {\n                 doctype: \"Customer\",\n                 name: frm.doc.customer\n             },\n             callback: function (data) {\n                 frappe.model.set_value(frm.doctype,frm.docname, \"report_preference\",\n                                                               data.message.report_preference)\n             }\n         })\n\t}\n});\n\nfrappe.ui.form.on(\"Sales Invoice\", \"billed_in\",\n  function(frm) {\n    frm.set_query(\"item_code\", \"items\", function() {\n      return { \n        query: \"erpnext.controllers.queries.item_query\", \n        filters: frm.doc.billed_in !== \"\" ? {\"billable_in\": frm.doc.billed_in} : {\"disabled\": \"No\"} \n      };\n    });        \n});\n", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Item", 
+  "modified": "2016-05-20 11:27:07.615457", 
+  "name": "Item-Client", 
+  "script": "frappe.ui.form.on(\"Item\", \"item_group\",\n    function(frm) {\n        frappe.call({\n            \"method\": \"frappe.client.get\",\n            args: {\n                doctype: \"Item Group\",\n                name: frm.doc.item_group\n            },\n            callback: function (data) {\n                frappe.model.set_value(frm.doctype,frm.docname, \"is_sales_item\",data.message.is_sale)\n                frappe.model.set_value(frm.doctype,frm.docname, \"is_purchase_item\",\n                                                                              data.message.is_purchase)\n                if(data.message.is_service_or_stock == 'Service'){\n                    frappe.model.set_value(frm.doctype,frm.docname, \"is_service_item\",1)\n                    frappe.model.set_value(frm.doctype,frm.docname, \"is_stock_item\",0) \n                }\n                if(data.message.is_service_or_stock == 'Stock'){\n                    frappe.model.set_value(frm.doctype,frm.docname, \"is_service_item\",0)\n                    frappe.model.set_value(frm.doctype,frm.docname, \"is_stock_item\",1)\n                    if(data.message.warehouse){\n                           frappe.model.set_value(frm.doctype,frm.docname, \"default_warehouse\",\n                                                                                  data.message.warehouse)\n                    }\n                }\n            }\n        })\n    });", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Customer", 
+  "modified": "2017-01-04 12:04:43.720529", 
+  "name": "Customer-Client", 
+  "script": "frappe.ui.form.on('Customer', {\n \trefresh: function(frm) {\n \t\tif(frm.doc.name && (frappe.user.has_role(\"IP Physician\")||frappe.user.has_role(\"OP Physician\"))){\n \t\t\tfrm.add_custom_button(__('View History'), function() { \n \t\t\t\tfrappe.route_options = {\"patient\": frm.doc.name}\n \t\t\t\tfrappe.set_route(\"medical_record\");\n \t\t\t });\n\t\t};\n \t}\n});", 
+  "script_type": "Client"
+ }
+]
