@@ -216,7 +216,7 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 0, 
- "modified": "2016-12-26 11:44:48.453610", 
+ "modified": "2017-01-16 18:24:01.517878", 
  "modified_by": "Administrator", 
  "module": "IP", 
  "name": "Unit Type", 
@@ -287,7 +287,7 @@
    "write": 0
   }
  ], 
- "quick_entry": 1, 
+ "quick_entry": 0, 
  "read_only": 0, 
  "read_only_onload": 0, 
  "search_fields": "type", 

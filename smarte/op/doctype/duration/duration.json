@@ -79,7 +79,7 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 0, 
- "modified": "2016-12-21 15:05:51.606366", 
+ "modified": "2017-01-16 18:26:02.484374", 
  "modified_by": "Administrator", 
  "module": "OP", 
  "name": "Duration", 
@@ -171,7 +171,7 @@
    "write": 1
   }
  ], 
- "quick_entry": 0, 
+ "quick_entry": 1, 
  "read_only": 0, 
  "read_only_onload": 0, 
  "search_fields": "", 
