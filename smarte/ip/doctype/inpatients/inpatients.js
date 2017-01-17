@@ -139,13 +139,15 @@ var admit_patient = function(frm){
 				"fieldtype": "Link",
 				"label": "Facility Type",
 				"fieldname": "facility_type",
-				"options": "Facility Type"
+				"options": "Facility Type",
+				"reqd": 1,
 				},
 				{
 				"fieldtype": "Link",
 				"label": "Facility",
 				"fieldname": "facility_name",
 				"options": "Facility",
+				"reqd": 1,
 				},
 				{
 				"fieldtype": "Link",
@@ -388,8 +390,8 @@ var facility_transfer_allocate = function(frm){
 	var transfer_and_allocate = function(bed_number,facility_type,facility_name,expected_discharge){
 		frappe.call({
 			"method": "smarte.ip.doctype.inpatients.inpatients.facility_transfer_allocation",
-			"args": {patient: doc.patient, inpatient: doc.name, bed_number: bed_number, 
-				facility_type: facility_type, facility_name: facility_name, 
+			"args": {patient: doc.patient, inpatient: doc.name, bed_number: bed_number,
+				facility_type: facility_type, facility_name: facility_name,
 				expected_discharge: expected_discharge, old_facility_name: frm.doc.current_facility},
 			callback: function(r){
 				cur_frm.reload_doc();
