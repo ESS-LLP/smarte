@@ -1,8 +1,11 @@
-#smarteCare
+## This repo is no longer maintained
+To try out the features setup a new bench and install erpnext from https://github.com/ESS-LLP/erpnext-medical
+
+# smarteCare
 
 Modules on frappe to suite General Practice, Hospital and Laboratory Management. It is designed to work seamlessly with ERPNext so that healthcare providers can administer their day today operations in a smarter way.
 
-##Installation
+## Installation
 You will need a frappe site with erpnext installed. Visit https://github.com/frappe/bench
 
 	bench get-app smarte https://github.com/ESS-LLP/smarte.git
@@ -10,30 +13,30 @@ You will need a frappe site with erpnext installed. Visit https://github.com/fra
 	bench --site site.name install-app erpnext
 	bench --site site.name install-app smarte
 
-##Demo and Website
+## Demo and Website
 Visit [smarteCare](https://smarteHIS.com) to see live demo
 
-##Feature list
-####General Practice / Clinic Out Patient
+## Feature list
+#### General Practice / Clinic Out Patient
 * Appointments scheduling
 * Consultation - Prescriptions, Investigations etc.
 
-####Laboratory Management
+#### Laboratory Management
 * Lab Procedures
 * Lab Test Result Templates and Printing / Emailing
 * Sample Collection
 * Configurable workflow - Auto create sample collection task and lab procedure on Invoice submit
 
-####Hospital / In-patient Management(beta)
+#### Hospital / In-patient Management(beta)
 * In-patient admission, facility allotment
 * Infrastructure management - Wards, Rooms, Beds
 * Service Units - Nurses’ stations, Diagnostic test centres, Housekeeping units etc. and user assignment
 * Service Tasks (Tasks for service units)
 * Configurable workflow - Auto create service tasks
 
-####General
+#### General
 * Send SMS - automatic / manual
 * Resource Scheduling (Physicians, Service Units etc.)
 
-####License
+#### License
 GNU / General Public License v3.
